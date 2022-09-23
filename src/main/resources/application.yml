@@ -1,0 +1,41 @@
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/board
+    driver-class-name: org.h2.Driver
+    username: board
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        #use_sql_comments: false
+        #show_sql: true
+
+logging:
+  level:
+    jdbc.sqlonly: DEBUG
+    jdbc.sqltiming: DEBUG
+    jdbc.audit: OFF
+    jdbc.resultset: OFF
+    jdbc.resultsettable: DEBUG
+    jdbc.connection: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: trace
+  file:
+    name: C:\logs\board\board.log
+  logback:
+    rollingpolicy:
+      max-history: 365
+      max-file-size: 100MB
+
+server:
+  port: 8085
